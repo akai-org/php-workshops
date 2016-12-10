@@ -1,8 +1,11 @@
 <?php
+// Wszystkie funkcje PHP są opisane w dokumentacji pod adresem http://php.net/manual/en/funcref.php
+
 echo '<pre>';
 /*
 <pre> to znacznik HTMLowy, który sprawia, że przeglądarka przestaje
-ignorować białe znaki. Dzięki temu output funkcji print_r będzie czytelniejszy. */
+ignorować białe znaki. Dzięki temu output funkcji print_r będzie czytelniejszy.
+*/
 
 /*
 $_POST to superglobalna (dostępna w kaźdym miejscu skryptu) tablica
