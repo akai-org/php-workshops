@@ -79,3 +79,27 @@ if (empty($_POST['sex'])) {
     echo '<p>Pole płeć ma niedozwoloną wartość!</p>';
   }
 }
+
+
+if (empty($_POST['birth_year'])) {
+  echo '<p>Podaj swój rok urodzenia!</p>';
+} else {
+  $birth_year = $_POST['birth_year'];
+
+  // intval zamienia ciąg znaków na wartość całkowitoliczbową, a jeśli się to nie uda, zwraca 0.
+  $birth_year_num = intval($birth_year);
+
+  if (!$birth_year_num) {
+    echo '<p>Rok urodzenia musi być liczbą</p>';
+  } else {
+    /*
+    date zwraca aktualną datę zapisaną według podanego formatu.
+    Y to symbol roku czterocyfrowego.
+    Zwracana wartość jest typu string, więc dobrze jest ją zamienić na liczbę,
+    jeśli chcemy wykonywać na niej obliczenia (chociaż zadziałałoby to i bez tego).
+    */
+    $year = intval(date('Y'));
+    $age = $year - $birth_year_num;
+    echo "<p>Obliczony wiek: $age.</p>";
+  }
+}
