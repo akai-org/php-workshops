@@ -59,3 +59,23 @@ if (empty($_POST['email'])) {
     echo '<p>Adres email jest nieprawidłowy!</p>';
   }
 }
+
+
+if (empty($_POST['sex'])) {
+  echo '<p>Wybierz płeć!</p>';
+} else {
+  $sex = $_POST['sex'];
+
+  if ($sex == 'male') {
+    echo '<p>Dzień dobry panu!</p>';
+  } else if ($sex == 'female') {
+    echo '<p>Dzień dobry pani!</p>';
+  } else {
+    /*
+    Poprawność pól trzeba sprawdzać nawet wtedy, gdy formularz umożliwia wybranie
+    wartości spośród podanych (pola typu radio, checkbox, select).
+    Bardzo łatwo jest podmienić rodzaj pola w przeglądarce i wysłać złośliwe dane.
+    */
+    echo '<p>Pole płeć ma niedozwoloną wartość!</p>';
+  }
+}
