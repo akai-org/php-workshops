@@ -122,3 +122,30 @@ if (empty($_POST['password']) || empty($_POST['password2'])) {
     echo '<p>Hasła nie pasują!</p>';
   }
 }
+
+/*
+is_array sprawdza, czy podana wartość jest tablicą.
+Zaznaczone pola typu checkbox przekazywane są do skryptu właśnie w postaci tablicy.
+Trzeba tylko pamiętać, żeby nazwa pola miała na końcu parę nawiasów kwadratowych - [].
+*/
+if (is_array($_POST['interests'])) {
+  $interests = $_POST['interests'];
+  $messages = [
+    'Na pewno spodoba Ci się ta płyta.',
+    'Co ostatnio przeczytałeś?',
+    'Nie przegap jutrzejszego meczu!',
+    'Jaki polecasz przepis na makaron?',
+    'Ile pali Twoje auto?',
+    'Co sądzisz o nowym MacBooku Pro?',
+    'Znalazłem tanie loty do Norwegii.'
+  ];
+
+  foreach ($interests as $chosen) {
+    // isset sprawdza, czy zmienna jest ustawiona
+    if (isset($messages[$chosen])) {
+      echo "<p>{$messages[$chosen]}</p>";
+    }
+  }
+} else {
+  echo '<p>Nie wybrano żadnych zainteresowań.</p>';
+}
