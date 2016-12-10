@@ -103,3 +103,22 @@ if (empty($_POST['birth_year'])) {
     echo "<p>Obliczony wiek: $age.</p>";
   }
 }
+
+
+if (empty($_POST['password']) || empty($_POST['password2'])) {
+  echo '<p>Wpisz hasło do obu pól</p>';
+} else {
+  $password = $_POST['password'];
+  $password2 = $_POST['password2'];
+
+  if ($password == $password2) {
+    echo '<p>Hasła są zgodne.</p>';
+
+    // strlen podaje długość napisu
+    if (strlen($password) < 8) {
+      echo '<p>Hasło jest za krótkie!</p>';
+    }
+  } else {
+    echo '<p>Hasła nie pasują!</p>';
+  }
+}
